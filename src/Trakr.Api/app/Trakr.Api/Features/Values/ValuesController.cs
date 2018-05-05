@@ -1,16 +1,24 @@
 ﻿using System.Collections.Generic;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Trakr.Api.Controllers
+namespace Trakr.Api.Features.Values
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly IMediator _mediator;
+
+        public ValuesController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _mediator.Send(new GetValuesQuery()).Result;
         }
 
         // GET api/values/5
