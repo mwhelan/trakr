@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Libs\" />
+    <ProjectReference Include="..\..\app\Trakr.Libs\Trakr.Libs.csproj" />
   </ItemGroup>
 
 </Project>
